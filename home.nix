@@ -39,7 +39,6 @@
     kitty
     keepassxc
     bat
-    neovim
     lsd
     neofetch
   ];
@@ -77,6 +76,8 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  programs.neovim.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
