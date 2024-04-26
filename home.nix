@@ -77,7 +77,7 @@
   };
   programs.nushell = {
     enable = true;
-    configFile.source = ./config.nu;
+    configFile.source = ./configuration/nushell/config.nu;
   };
   programs.starship = {
     enable = true;
