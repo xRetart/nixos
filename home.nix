@@ -18,7 +18,6 @@
     nil
     lua-language-server
     rofi-wayland
-    eww
     brightnessctl
     hyprpaper
     pavucontrol
@@ -86,6 +85,10 @@
   programs.starship = {
     enable = true;
     catppuccin.enable = true;
+  };
+  programs.eww = {
+    enable = true;
+    configDir = ./configuration/eww;
   };
   services.gammastep = {
     enable = true;
