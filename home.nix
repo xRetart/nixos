@@ -36,6 +36,10 @@
     enable = true;
     defaultEditor = true;
   };
+  xdg.configFile."nvim" = {
+	source = ./configuration/neovim;
+    recursive = true;
+  };
   programs.carapace.enable = true;
 
   programs.btop = {
