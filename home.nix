@@ -75,12 +75,12 @@
     enable = true;
     configFile.source = ./configuration/nushell/config.nu;
     shellAliases = {
-      "a" = "sudo";
-      "b" = "bat";
-      "e" = "nvim";
-      "g" = "git";
-      "l" = "lsd -l";
-      "s" = "lsd -la";
+      a = "sudo";
+      b = "bat";
+      e = "nvim";
+      g = "git";
+      l = "lsd -l";
+      s = "lsd -la";
     };
   };
   programs.starship = {
