@@ -1,0 +1,42 @@
+* {
+	all: unset;
+	font-family: "MesloLGS NF";
+}
+
+$background: #1A1B26;
+
+.eww-bar {
+	background-color: $background;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 5px 15px;
+}
+.brightness-slider {
+	color: #00FF00;
+}
+.icon {
+	font-family: "Font Awesome 6 Pro Solid";
+}
+scale trough {
+  all: unset;
+  background-color: #00FF00;
+  color: #FF0000;
+  border-radius: 5px;
+  min-height: 10px;
+  min-width: 80px;
+}
+
+.active-occupied-workspace {
+	font-family: "Font Awesome 6 Pro Solid";
+	color: #FF00FF;
+}
+.active-unoccupied-workspace {
+	font-family: "Font Awesome 6 Pro Regular";
+	color: #FF00FF;
+}
+.inactive-occupied-workspace {
+	font-family: "Font Awesome 6 Pro Solid";
+}
+.inactive-unoccupied-workspace {
+	font-family: "Font Awesome 6 Pro Regular";
+}

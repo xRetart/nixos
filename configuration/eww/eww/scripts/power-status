@@ -1,0 +1,32 @@
+#! /usr/bin/env nu
+
+const battery = 'BAT0'
+
+def fraction [] {
+	let capacity = open $'/sys/class/power_supply/($battery)/capacity' | into int
+
+	if $capacity < 10 {
+		' '
+	} else if $capacity < 25 {
+		' '
+	} else if $capacity < 50 {
+		' '
+	} else if $capacity < 75 {
+		' '
+	} else if $capacity < 100 {
+		' '
+	} else if $capacity == 100 {
+		' '
+	} else {
+		'ERROR: Battery capacity is not recognized.'
+	}
+}
+
+let status = open $'/sys/class/power_supply/($battery)/status'
+
+match $status {
+	"Not charging\n" | "Full\n" => ' ',
+	"Charging\n" => ' ',
+	"Discharging\n" => fraction,
+	_ => 'ERROR: Power status is not recognized.',
+}

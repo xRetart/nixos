@@ -1,0 +1,5 @@
+#! /usr/bin/env nu
+
+def main [color: string] {
+	ls icons | each { sed -i $'s/fill:#[0-9a-fA-F]\{6\}/fill:#($color)/g' $in.name };
+}

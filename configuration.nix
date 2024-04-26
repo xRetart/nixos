@@ -5,19 +5,44 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [ ./hardware-configuration.nix ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+        enable = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # powers up the default Bluetooth controller on boot
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
+  services.locate = {
+    enable = true;
+	package = pkgs.plocate;
+	localuser = null;
+  };
+  services.geoclue2 = {
+    enable = true;
+	appConfig = {
+	  "gammastep" = {
+		isAllowed = true;
+		isSystem = true;
+		users = [ "1000" ];
+	  };
+	};
+  };
+  security.polkit = {
+    enable = true;
+  };
+
+  networking.hostName = "richard-laptop-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -29,44 +54,72 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
+  
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_DE.UTF-8";
+      LC_IDENTIFICATION = "de_DE.UTF-8";
+      LC_MEASUREMENT = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+      LC_NAME = "de_DE.UTF-8";
+      LC_NUMERIC = "de_DE.UTF-8";
+      LC_PAPER = "de_DE.UTF-8";
+      LC_TELEPHONE = "de_DE.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
+    };
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.plasma5.useQtScaling = true;
-  services.xserver.displayManager.sddm.enableHidpi = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+   desktopManager.plasma5 = {
+     enable = true;
+     useQtScaling = true;
+   };
+  
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+    };
   };
 
-  # Enable CUPS to print documents.
+
+  programs.hyprland = {
+    # Whether to enable Hyprland wayland compositor
+    enable = true;
+    # The hyprland package to use
+    package = pkgs.hyprland;
+
+    # Whether to enable XWayland
+    xwayland.enable = true;
+    # settings = {
+ #      decoration = {
+ #        shadow_offset = "0 5";
+ #        "col.shadow" = "rgba(00000099)";
+ #      };
+ #  
+ #      "$mod" = "SUPER";
+ #  
+ #      bindm = [
+ #        # mouse movements
+ #        "$mod, mouse:272, movewindow"
+ #        "$mod, mouse:273, resizewindow"
+ #        "$mod ALT, mouse:272, resizewindow"
+ #      ];
+ #    };
+
+    # Optional
+    # Whether to enable hyprland-session.target on hyprland startup
+  };
+
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -80,31 +133,49 @@
     #media-session.enable = true;
   };
 
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+
+  # fingerprint
+  services.fprintd = {
+	enable = true;
+    # package = pkgs.fprintd.overrideAttrs {
+    #   mesonCheckFlags = [
+    #     "--no-suite"
+    #     "fprintd:TestPamFprintd"
+    #   ];
+    # };
+    # tod = {
+    #   enable = true;
+    #   driver = pkgs.libfprint-2-tod1-goodix;
+    # };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.richard = {
     isNormalUser = true;
     description = "Richard H";
     extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "richard" = import ./home.nix;
-    };
+    shell = pkgs.nushell;
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (_: true);
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
+    usbutils
     cifs-utils
+  ];
+  fonts.packages = with pkgs; [
+    meslo-lgs-nf
   ];
 
   fileSystems."/mnt/leannas" = {
@@ -112,8 +183,10 @@
     fsType = "cifs";
     options = let
       prevent_hang_options = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
+      authenticate_option = "credentials=/etc/nixos/leannas.credentials";
+      permission_options = "uid=1000,gid=1000";
 
-    in ["${prevent_hang_options},credentials=/etc/nixos/leannas.credentials,uid=1000,gid=1000"];
+    in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,0 +1,26 @@
+#! /usr/bin/env nu
+
+def workspaces [] {
+	let active = (hyprctl -j activeworkspace | from json).id
+	let occupied = hyprctl -j workspaces | from json | filter { $in.windows > 0  } | each { $in.id }
+
+	let icons = 1..9 | each { |id|
+		let is_active = if $id == $active { 'active' } else { 'inactive' }
+		let is_occupied = if $id in $occupied { 'occupied' } else { 'unoccupied' }
+		let class = $'($is_active)-($is_occupied)-workspace'
+
+		let icon = if $id == $active { ' ' } else { ' ' }
+
+		let onclick = $'hyprctl dispatch workspace ($id)'
+
+		$"\(button :onclick \"($onclick)\" \(label :class \"($class)\" :text \"($icon)\"\)\)"
+	} | str join ' '
+
+	let onscroll = 'hyprctl dispatch workspace $([ {} = up ] && echo e+1 || echo e-1)'
+
+
+	print $"\(eventbox :onscroll \"($onscroll)\" \(box ($icons)\)\)"
+}
+
+workspaces
+socat -u $'UNIX-CONNECT:/tmp/hypr/($env.HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock' - | each { workspaces }
