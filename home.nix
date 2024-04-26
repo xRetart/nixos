@@ -51,9 +51,7 @@
     enable = true;
     catppuccin.enable = true;
   };
-  programs.lsd = {
-    enable = true;
-  };
+  programs.lsd.enable = true;
   programs.firefox.enable = true;
   programs.kitty = {
     enable = true;
@@ -63,9 +61,7 @@
     };
     catppuccin.enable = true;
   };
-  programs.git = {
-    enable = true;
-  };
+  programs.git.enable = true;
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -78,6 +74,14 @@
   programs.nushell = {
     enable = true;
     configFile.source = ./configuration/nushell/config.nu;
+    shellAliases = {
+      "a" = "sudo";
+      "b" = "bat";
+      "e" = "nvim";
+      "g" = "git";
+      "l" = "lsd -l";
+      "s" = "lsd -la";
+    };
   };
   programs.starship = {
     enable = true;
@@ -246,15 +250,6 @@
       ", XF86MonBrightnessDown, exec, $brightnessDown"
       ", XF86MonBrightnessUp, exec, $brightnessUp"
     ];
-  };
-
-  home.shellAliases = {
-    "a" = "sudo";
-    "b" = "bat";
-    "e" = "nvim";
-    "g" = "git";
-    "l" = "lsd -l";
-    "s" = "lsd -la";
   };
 
   # Let Home Manager install and manage itself.
