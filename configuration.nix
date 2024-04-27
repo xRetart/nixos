@@ -31,7 +31,7 @@
   services.geoclue2 = {
     enable = true;
 	appConfig = {
-	  "gammastep" = {
+	  gammastep = {
 		isAllowed = true;
 		isSystem = true;
 		users = [ "1000" ];
@@ -72,16 +72,16 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    displayManager.sddm = {
+  services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+  };
+  services.xserver = {
+    enable = true;
+    desktopManager.plasma5 = {
+      enable = true;
+      useQtScaling = true;
     };
-   desktopManager.plasma5 = {
-     enable = true;
-     useQtScaling = true;
-   };
   
     xkb = {
       layout = "us";
