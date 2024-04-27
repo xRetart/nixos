@@ -89,6 +89,9 @@
     };
   };
 
+
+  programs.hyprland.enable = true;
+
   services.printing.enable = true;
 
   services.pipewire = {
