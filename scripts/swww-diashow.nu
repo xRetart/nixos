@@ -1,0 +1,12 @@
+def main [
+	directory: path
+	--fill-color: string = '#181926'
+	--interval: duration = 30sec
+] {
+	loop {
+		for $image in (ls $directory) {
+			swww img $image.name --transition-type random --resize fit --fill-color $fill_color
+			sleep $interval
+		}
+	}
+}

@@ -33,10 +33,7 @@
     steam-run
 
     # custom
-    home.packages = with pkgs; [
-      (writeShellScriptBin "swww-diashow" (builtins.readFile ./scripts/test)
-    ];
-
+    (writeShellScriptBin "swww-diashow" (builtins.readFile ./scripts/swww-diashow))
   ];
   programs.neovim = {
     enable = true;
