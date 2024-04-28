@@ -6,7 +6,7 @@
     defaultEditor = true;
   };
   xdg.configFile."nvim" = {
-    source = ./neovim;
+    source = ./configuration;
     recursive = true;
   };
 }
