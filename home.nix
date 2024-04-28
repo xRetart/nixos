@@ -32,7 +32,6 @@
     whatsapp-for-linux
     steam-run
   ];
-  programs.carapace.enable = true;
 
   programs.btop = {
     enable = true;
@@ -57,31 +56,6 @@
     catppuccin.enable = true;
   };
   programs.git.enable = true;
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-    clock24 = true;
-    mouse = true;
-    prefix = "C-Space";
-    escapeTime = 0;
-    catppuccin.enable = true;
-  };
-  programs.nushell = {
-    enable = true;
-    configFile.source = ./configuration/nushell/config.nu;
-    shellAliases = {
-      a = "sudo";
-      b = "bat";
-      e = "nvim";
-      g = "git";
-      l = "lsd -l";
-      s = "lsd -la";
-    };
-  };
-  programs.starship = {
-    enable = true;
-    catppuccin.enable = true;
-  };
   services.gammastep = {
     enable = true;
     provider = "geoclue2";
