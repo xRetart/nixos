@@ -3,11 +3,12 @@
 {
   imports = [
     ./eww/mod.nix
-	./swww/mod.nix
+	  ./swww/mod.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       monitor = ",highres,auto,auto";
       "$mainMod" = "SUPER";
