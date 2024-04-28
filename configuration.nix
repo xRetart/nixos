@@ -41,6 +41,8 @@
   security.polkit = {
     enable = true;
   };
+  security.sudo.enable = false;
+  security.doas.enable = true;
 
   networking.hostName = "richard-laptop-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -163,7 +165,7 @@
     what = "//10.1.0.11/Transfer";
     where = "/home/richard/leannas";
     type = "cifs";
-    options = "credentials=/etc/nixos/leannas.credentials,rw,uid=1000,gid=1000";
+    options = "credentials=/home/richard/nixos/leannas.credentials,rw,uid=1000,gid=1000";
   }];
 
   # Some programs need SUID wrappers, can be configured further or are

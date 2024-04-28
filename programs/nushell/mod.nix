@@ -5,7 +5,7 @@
     enable = true;
     configFile.source = ./configuration/config.nu;
     shellAliases = {
-      a = "sudo";
+      a = "doas";
       b = "bat";
       c = "clear";
       e = "nvim";
