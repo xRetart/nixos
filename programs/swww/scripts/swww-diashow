@@ -1,14 +1,29 @@
 #! /usr/bin/env nu
 
+def generate_sequence [previous_last, directory: path] {
+  let shuffled = (ls $directory | shuffle)
+
+  if $previous_last != ($shuffled | first) or ($shuffled | length) < 2 {
+    $shuffled
+  } else {
+    $shuffled | roll up
+  }
+}
+
 def main [
 	directory: path
 	--fill-color: string = '#181926'
 	--interval: duration = 30sec
 ] {
+  mut previous_last = null
 	loop {
-		for $image in (ls $directory) {
+    let sequence = generate_sequence $previous_last $directory
+
+		for $image in $sequence {
 			swww img $image.name --transition-type random --resize fit --fill-color $fill_color
 			sleep $interval
 		}
+
+    $previous_last = ($sequence | last)
 	}
 }
