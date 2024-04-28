@@ -4,6 +4,7 @@
   imports = [
     ./programs/neovim/mod.nix
 	./programs/hyprland.nix
+	./programs/nushell.nix
   ];
 
   home.username = "richard";
