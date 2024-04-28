@@ -42,7 +42,7 @@
       Mount = {
         What = "//10.1.0.11/Transfer";
         Where = /mnt/leannas;
-        Options = "credentials=/etc/nixos/leannas.credentials,noauto";
+        Options = [ "credentials=/etc/nixos/leannas.credentials" "noauto" ];
         Type = "cifs";
         TimeoutSec = 10;
       };
