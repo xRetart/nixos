@@ -1,6 +1,10 @@
 { config, pkgs, catppuccin, ... }:
 
 {
+  imports = [
+    ./tmux.nix
+    ./starship.nix
+  ];
   programs.nushell = {
     enable = true;
     configFile.source = ./configuration/config.nu;
@@ -15,17 +19,4 @@
     };
   };
   programs.carapace.enable = true;
-  programs.starship = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-    clock24 = true;
-    mouse = true;
-    prefix = "C-Space";
-    escapeTime = 0;
-    catppuccin.enable = true;
-  };
 }
