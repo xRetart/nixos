@@ -34,23 +34,23 @@
     whatsapp-for-linux
     steam-run
   ];
-  systemd.user.mounts = {
-    leannas = {
-      Unit = {
-        Description = "Leannas cifs share mounted at boot";
-      };
-      Mount = {
-        What = "//10.1.0.11/Transfer";
-        Where = /mnt/leannas;
-        Options = [ "credentials=/etc/nixos/leannas.credentials" "noauto" ];
-        Type = "cifs";
-        TimeoutSec = 10;
-      };
-      Install = {
-        WantedBy = "multi-user.target";
-      };
-    };
-  };
+  # systemd.user.mounts = {
+  #   home-richard-leannas = {
+  #     Unit = {
+  #       Description = "Leannas cifs share mounted at boot";
+  #     };
+  #     Mount = {
+  #       What = "//10.1.0.11/Transfer";
+  #       Where = /home/richard/leannas;
+  #       Options = [ "credentials=/etc/nixos/leannas.credentials" "uid=1000" "gid=1000" "" ];
+  #       Type = "cifs";
+  #       TimeoutSec = 10;
+  #     };
+  #     Install = {
+  #       WantedBy = [ "multi-user.target" ];
+  #     };
+  #   };
+  # };
 
   programs.btop = {
     enable = true;

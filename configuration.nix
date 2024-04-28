@@ -144,13 +144,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    usbutils
-    cifs-utils
-  ];
-  fonts.packages = with pkgs; [
-    meslo-lgs-nf
-  ];
+  environment.systemPackages = with pkgs; [ pkgs.usbutils ];
+  fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
   # fileSystems."/mnt/leannas" = {
   #   device = "//10.1.0.11/Transfer";
@@ -162,6 +157,14 @@
   #
   #   in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
   # };
+  boot.supportedFilesystems = [ "cifs" ];
+  systemd.mounts = [{
+    description = "Leannas cifs share mounted at boot";
+    what = "//10.1.0.11/Transfer";
+    where = "/home/richard/leannas";
+    type = "cifs";
+    options = "credentials=/etc/nixos/leannas.credentials,rw,uid=1000,gid=1000";
+  }];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
