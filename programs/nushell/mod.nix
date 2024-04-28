@@ -1,10 +1,6 @@
 { config, pkgs, catppuccin, ... }:
 
 {
-  imports = [
-    ./tmux.nix
-    ./starship.nix
-  ];
   programs.nushell = {
     enable = true;
     configFile.source = ./configuration/config.nu;
