@@ -5,6 +5,7 @@
     ./programs/neovim/mod.nix
 	./programs/hyprland.nix
 	./programs/nushell/mod.nix
+	./programs/kitty.nix
   ];
 
   home.username = "richard";
@@ -45,14 +46,6 @@
   };
   programs.lsd.enable = true;
   programs.firefox.enable = true;
-  programs.kitty = {
-    enable = true;
-    settings = {
-     enable_audio_bell = false;
-     confirm_os_window_close = 0;
-    };
-    catppuccin.enable = true;
-  };
   programs.git.enable = true;
   services.gammastep = {
     enable = true;
