@@ -17,7 +17,6 @@
 
   home.packages = with pkgs; [
     keepassxc
-    gcc
     neofetch
     brightnessctl
     pavucontrol
