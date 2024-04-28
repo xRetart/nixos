@@ -3,7 +3,7 @@
 {
   imports = [
     ./eww/mod.nix
-	  ./swww/mod.nix
+    ./swww/mod.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -16,7 +16,7 @@
       exec-once = "eww open bar & swww-daemon & firefox";
 
       env = [
-		"SWWW_TRANSITION_FPS,120"
+        "SWWW_TRANSITION_FPS,120"
         "GDK_DPI_SCALE,0.5"
         "XCURSOR_SIZE,64"
         "QT_QPA_PLATFORMTHEME,qt5ct"
