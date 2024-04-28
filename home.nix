@@ -6,6 +6,7 @@
 	./programs/hyprland.nix
 	./programs/nushell/mod.nix
 	./programs/kitty.nix
+	./programs/gammastep.nix
   ];
 
   home.username = "richard";
@@ -47,14 +48,6 @@
   programs.lsd.enable = true;
   programs.firefox.enable = true;
   programs.git.enable = true;
-  services.gammastep = {
-    enable = true;
-    provider = "geoclue2";
-    temperature = {
-      day = 5000;
-      night = 3500;
-    };
-  };
 
   catppuccin.flavour = "macchiato";
 
