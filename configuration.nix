@@ -152,16 +152,16 @@
     meslo-lgs-nf
   ];
 
-  fileSystems."/mnt/leannas" = {
-    device = "//10.1.0.11/Transfer";
-    fsType = "cifs";
-    options = let
-      prevent_hang_options = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
-      authenticate_option = "credentials=/etc/nixos/leannas.credentials";
-      permission_options = "uid=1000,gid=1000";
-
-    in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
-  };
+  # fileSystems."/mnt/leannas" = {
+  #   device = "//10.1.0.11/Transfer";
+  #   fsType = "cifs";
+  #   options = let
+  #     prevent_hang_options = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
+  #     authenticate_option = "credentials=/etc/nixos/leannas.credentials";
+  #     permission_options = "uid=1000,gid=1000";
+  #
+  #   in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
