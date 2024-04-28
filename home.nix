@@ -20,22 +20,17 @@
     neofetch
     nil
     lua-language-server
-    rofi-wayland
     brightnessctl
     pavucontrol
     tor-browser
     socat
     plocate
-	swww
 
     # unfree
     obsidian
     spotify
     whatsapp-for-linux
     steam-run
-
-    # custom
-    (writeScriptBin "swww-diashow" (builtins.readFile ./scripts/swww-diashow))
   ];
   programs.carapace.enable = true;
 
@@ -86,10 +81,6 @@
   programs.starship = {
     enable = true;
     catppuccin.enable = true;
-  };
-  programs.eww = {
-    enable = true;
-    configDir = ./configuration/eww;
   };
   services.gammastep = {
     enable = true;

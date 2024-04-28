@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./eww/mod.nix
+	./swww/mod.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -143,5 +148,8 @@
     };
   };
 
-  home.packages = [ pkgs.hyprcursor ];
+  home.packages = with pkgs; [
+    hyprcursor
+    rofi-wayland
+  ];
 }
