@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./programs/neovim.nix ];
+
   home.username = "richard";
   home.homeDirectory = "/home/richard";
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
   xdg.enable = true;
 
   home.stateVersion = "23.11";
@@ -35,14 +35,6 @@
     # custom
     (writeScriptBin "swww-diashow" (builtins.readFile ./scripts/swww-diashow))
   ];
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-  xdg.configFile."nvim" = {
-    source = ./configuration/neovim;
-    recursive = true;
-  };
   programs.carapace.enable = true;
 
   programs.btop = {
