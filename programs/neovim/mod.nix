@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    nil
+    lua-language-server
+  ];
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;

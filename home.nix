@@ -19,8 +19,6 @@
     keepassxc
     gcc
     neofetch
-    nil
-    lua-language-server
     brightnessctl
     pavucontrol
     tor-browser
