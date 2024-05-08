@@ -54,6 +54,7 @@
   
   # Select internationalisation properties.
   i18n = {
+    consoleUseXkbConfig = true;
     defaultLocale = "en_US.UTF-8";
     # extraLocaleSettings = {
     #   LC_ADDRESS = "de_DE.UTF-8";
