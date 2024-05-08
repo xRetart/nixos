@@ -88,6 +88,7 @@
 
 
   programs.hyprland.enable = true;
+  programs.git.enable = true;
 
   services.printing.enable = true;
 
@@ -143,7 +144,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     usbutils
-	git
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
