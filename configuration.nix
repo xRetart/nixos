@@ -53,8 +53,8 @@
   time.timeZone = "Europe/Berlin";
   
   # Select internationalisation properties.
+  console.useXkbConfig = true;
   i18n = {
-    consoleUseXkbConfig = true;
     defaultLocale = "en_US.UTF-8";
     # extraLocaleSettings = {
     #   LC_ADDRESS = "de_DE.UTF-8";
