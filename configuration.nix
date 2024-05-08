@@ -11,9 +11,7 @@
 
   # Bootloader.
   boot.loader = {
-    systemd-boot = {
-        enable = true;
-    };
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
@@ -25,22 +23,19 @@
   services.blueman.enable = true;
   services.locate = {
     enable = true;
-	package = pkgs.plocate;
-	localuser = null;
+    package = pkgs.plocate;
+    localuser = null;
   };
   services.geoclue2 = {
     enable = true;
-	appConfig = {
-	  gammastep = {
-		isAllowed = true;
-		isSystem = true;
-		users = [ "1000" ];
-	  };
-	};
+    appConfig.gammastep = {
+      isAllowed = true;
+      isSystem = true;
+      users = [ "1000" ];
+    };
   };
-  security.polkit = {
-    enable = true;
-  };
+  security.polkit.enable = true;
+
   security.sudo.enable = false;
   security.doas.enable = true;
 
@@ -119,7 +114,7 @@
 
   # fingerprint
   services.fprintd = {
-	enable = true;
+    enable = true;
     # package = pkgs.fprintd.overrideAttrs {
     #   mesonCheckFlags = [
     #     "--no-suite"
@@ -146,7 +141,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ pkgs.usbutils ];
+  environment.systemPackages = with pkgs; [
+    usbutils
+	git
+  ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
   # fileSystems."/mnt/leannas" = {
