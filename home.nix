@@ -3,12 +3,12 @@
 {
   imports = [
     ./programs/neovim/mod.nix
-	./programs/hyprland.nix
-	./programs/tmux.nix
-	./programs/starship.nix
-	./programs/nushell/mod.nix
-	./programs/kitty.nix
-	./programs/gammastep.nix
+    ./programs/hyprland.nix
+    ./programs/tmux.nix
+    ./programs/starship.nix
+    ./programs/nushell/mod.nix
+    ./programs/kitty.nix
+    ./programs/gammastep.nix
   ];
 
   home.username = "richard";

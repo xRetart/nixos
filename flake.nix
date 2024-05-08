@@ -14,10 +14,11 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-	  nixosConfigurations."richard-laptop-nixos" = nixpkgs.lib.nixosSystem {
+    in
+    {
+      nixosConfigurations."richard-laptop-nixos" = nixpkgs.lib.nixosSystem {
         inherit system;
-		specialArgs = inputs;
+        specialArgs = inputs;
         modules = [ ./configuration.nix ];
       };
       homeConfigurations."richard" = home-manager.lib.homeManagerConfiguration {
@@ -28,5 +29,6 @@
           catppuccin.homeManagerModules.catppuccin
         ];
       };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
 }

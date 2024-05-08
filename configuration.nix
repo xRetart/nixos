@@ -51,7 +51,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-  
+
   # Select internationalisation properties.
   console.useXkbConfig = true;
   i18n = {
@@ -71,8 +71,8 @@
 
   # Enable the X11 windowing system.
   services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
+    enable = true;
+    wayland.enable = true;
   };
   services.xserver = {
     enable = true;
@@ -80,7 +80,7 @@
       enable = true;
       useQtScaling = true;
     };
-  
+
     xkb = {
       layout = "us";
       variant = "colemak";

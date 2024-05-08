@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-	  swww
+    swww
     (writeScriptBin "swww-diashow" (builtins.readFile ./scripts/swww-diashow))
   ];
 }
