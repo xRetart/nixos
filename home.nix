@@ -67,6 +67,9 @@
   programs.lsd.enable = true;
   programs.firefox.enable = true;
   programs.git.enable = true;
+  programs.wezterm = {
+	  enable = true;
+  };
 
   catppuccin.flavour = "macchiato";
 
