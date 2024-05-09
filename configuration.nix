@@ -145,6 +145,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     usbutils
+	refind
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
