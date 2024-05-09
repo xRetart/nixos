@@ -146,6 +146,7 @@
   environment.systemPackages = with pkgs; [
     usbutils
 	refind
+	efibootmgr
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
