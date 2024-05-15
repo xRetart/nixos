@@ -28,6 +28,7 @@
     socat
     plocate
 	protonvpn-gui
+	sbctl
 
     # unfree
     obsidian
