@@ -27,6 +27,7 @@
     tor-browser
     socat
     plocate
+	protonvpn-gui
 
     # unfree
     obsidian
