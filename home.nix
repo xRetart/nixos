@@ -61,7 +61,10 @@
   programs.gpg = {
     enable = true;
   };
-  services.gpg-agent.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
   programs.mpv = {
     enable = true;
     catppuccin.enable = true;
