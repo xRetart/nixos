@@ -14,7 +14,7 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, lanzaboote, catppuccin, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, /* lanzaboote, */ catppuccin, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
