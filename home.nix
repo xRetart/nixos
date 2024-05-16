@@ -60,7 +60,7 @@
   };
   programs.gpg = {
     enable = true;
-    homeDir = "${config.xdg.dataHome}/gnupg";
+    homedir = "${config.xdg.dataHome}/gnupg";
   };
   programs.mpv = {
     enable = true;
