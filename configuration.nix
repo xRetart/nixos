@@ -37,7 +37,8 @@
   services.kmscon = {
     enable = true;
     hwRender = true;
-    fonts = [ { name = "MesloLGS"; package = pkgs.meslo-lgs-nf; } ];
+    fonts = [ { name = "MesloLGS Regular"; package = pkgs.meslo-lgs-nf; } ];
+	extraConfig = "font-size=14";
   };
   security.polkit.enable = true;
 
