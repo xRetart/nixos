@@ -38,7 +38,11 @@
     enable = true;
     hwRender = true;
     fonts = [ { name = "MesloLGS NF Regular"; package = pkgs.meslo-lgs-nf; } ];
-	extraConfig = "font-size=18";
+    extraConfig = ''
+      font-size=18
+      xkb-layout=us
+      xkb-variant=colemak
+    '';
   };
   security.polkit.enable = true;
 
