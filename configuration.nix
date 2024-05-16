@@ -37,7 +37,7 @@
   services.kmscon = {
     enable = true;
     hwRender = true;
-    fonts = [ { name = "MesloLGS", package = pkgs.meslo-lgs-nf } ];
+    fonts = [ { name = "MesloLGS"; package = pkgs.meslo-lgs-nf } ];
   };
   security.polkit.enable = true;
 
