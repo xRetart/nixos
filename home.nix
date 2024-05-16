@@ -27,8 +27,8 @@
     tor-browser
     socat
     plocate
-	protonvpn-gui
-	sbctl
+    protonvpn-gui
+    sbctl
 
     # unfree
     obsidian
@@ -58,6 +58,10 @@
     enable = true;
     catppuccin.enable = true;
   };
+  programs.gpg = {
+    enable = true;
+    homeDir = "${config.xdg.dataHome}/gnupg";
+  };
   programs.mpv = {
     enable = true;
     catppuccin.enable = true;
@@ -70,7 +74,7 @@
   programs.firefox.enable = true;
   programs.git.enable = true;
   programs.wezterm = {
-	  enable = true;
+      enable = true;
   };
 
   catppuccin.flavour = "macchiato";
