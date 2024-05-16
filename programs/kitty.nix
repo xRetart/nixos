@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "MesloLGS NF Regular";
+      name = "MesloLGS NF";
       package = pkgs.meslo-lgs-nf;
     };
     settings = {
