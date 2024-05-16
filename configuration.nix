@@ -34,6 +34,11 @@
       users = [ "1000" ];
     };
   };
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    fonts = [ { name = "MesloLGS", package = pkgs.meslo-lgs-nf } ];
+  };
   security.polkit.enable = true;
 
   security.sudo.enable = false;
@@ -145,8 +150,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     usbutils
-	refind
-	efibootmgr
+    refind
+    efibootmgr
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
