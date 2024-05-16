@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = "MesloLGS NF Regular";
-      package = pkg.meslo-lgs-nf;
+      package = pkgs.meslo-lgs-nf;
     };
     settings = {
       enable_audio_bell = false;
