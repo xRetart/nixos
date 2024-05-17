@@ -92,7 +92,14 @@
   };
   programs.lsd.enable = true;
   programs.firefox.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      commit = {
+        gpgsign = true;
+      };
+    };
+  };
   programs.wezterm = {
       enable = true;
   };
