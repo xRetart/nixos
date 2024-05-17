@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  homeDirectory = config.home.homeDirectory;
+in
 {
   imports = [
     ./programs/neovim/mod.nix
@@ -43,7 +46,7 @@
   #     };
   #     Mount = {
   #       What = "//10.1.0.11/Transfer";
-  #       Where = /home/richard/leannas;
+  #       Where = ${homeDirectory}/leannas;
   #       Options = [ "credentials=/etc/nixos/leannas.credentials" "uid=1000" "gid=1000" "" ];
   #       Type = "cifs";
   #       TimeoutSec = 10;
@@ -72,12 +75,12 @@
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "/home/richard/.ssh/id_ed25519_pri";
+        identityFile = "${homeDirectory}/.ssh/id_ed25519_pri";
       };
       "github.com-work" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "/home/richard/.ssh/id_ed25519_pro";
+        identityFile = "${homeDirectory}/.ssh/id_ed25519_pro";
       };
     };
   };
