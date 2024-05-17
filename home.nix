@@ -65,6 +65,8 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
+  programs.ssh.enable = true;
+  services.ssh-agent.enable = true;
   services.clipman.enable = true;
   programs.mpv = {
     enable = true;
