@@ -65,6 +65,7 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
+  services.copyq.enable = true;
   programs.mpv = {
     enable = true;
     catppuccin.enable = true;
