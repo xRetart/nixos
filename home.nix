@@ -111,7 +111,7 @@ in
     };
   };
   programs.wezterm = {
-      enable = true;
+    enable = true;
   };
 
   catppuccin.flavour = "macchiato";
