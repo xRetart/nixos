@@ -65,7 +65,21 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
-  programs.ssh.enable = true;
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "/home/richard/.ssh/id_ed25519_pri";
+      };
+      "github.com-work" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "/home/richard/.ssh/id_ed25519_pro";
+      };
+    };
+  };
   services.ssh-agent.enable = true;
   services.clipman.enable = true;
   programs.mpv = {
