@@ -18,6 +18,7 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button('f', '󰈞  Find File', function() require('telescope.builtin').find_files() end),
+			dashboard.button('o', '  Manage Files', '<cmd>Oil<cr>'),
 			dashboard.button('n', '  New file', '<cmd>ene <bar> startinsert <cr>'),
 			dashboard.button('r', '  Recent Files', function() require('telescope.builtin').oldfiles() end),
 			dashboard.button('t', '  Find Text', function() require('telescope.builtin').live_grep() end),

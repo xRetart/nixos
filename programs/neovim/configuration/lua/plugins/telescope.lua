@@ -31,15 +31,4 @@ return {
 		dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
 		config = function() require('telescope').load_extension('ui-select') end,
 	},
-	{
-		'nvim-telescope/telescope-file-browser.nvim',
-		dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-		keys = {
-			{
-				'<leader>pb',
-				function() require('telescope').extensions.file_browser.file_browser() end,
-				desc = 'Browse files'
-			} },
-		config = function() require('telescope').load_extension('file_browser') end,
-	}
 }
