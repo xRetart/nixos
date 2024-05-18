@@ -61,6 +61,7 @@ in
     enable = true;
     catppuccin.enable = true;
   };
+  programs.lazygit.enable = true;
   programs.gpg = {
     enable = true;
   };
