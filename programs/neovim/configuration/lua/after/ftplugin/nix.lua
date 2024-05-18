@@ -1,4 +1,4 @@
-local settings = vim.bo
+print("Loading nix.lua")
 
-settings.shiftwidth = 2
-settings.expandtab = false
+vim.bo.shiftwidth = 2
+vim.bo.expandtab = true
