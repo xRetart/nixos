@@ -1,4 +1,4 @@
-local opt = vim.opt
+local settings = vim.bo
 
-opt.shiftwidth = 2
-opt.expandtab = false
+settings.shiftwidth = 2
+settings.expandtab = false
