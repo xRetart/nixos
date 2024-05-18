@@ -12,39 +12,53 @@ in
     ./programs/nushell/mod.nix
     ./programs/kitty.nix
     ./programs/gammastep.nix
+    ./programs/bat.nix
+    ./programs/git.nix
+    ./programs/gpg.nix
+    ./programs/ssh.nix
+    ./programs/firefox.nix
+    ./programs/btop.nix
+    ./programs/lsd.nix
+    ./programs/mpv.nix
+    ./programs/clipman.nix
+    ./programs/lazygit.nix
   ];
 
-  home.username = "richard";
-  home.homeDirectory = "/home/richard";
+  home = {
+    username = "richard";
+    homeDirectory = "/home/richard";
+    stateVersion = "23.11";
 
+    home.packages = with pkgs; [
+      keepassxc
+      neofetch
+      brightnessctl
+      pavucontrol
+      tor-browser
+      socat
+      plocate
+      sbctl
+    ];
+  };
+
+  # unfree packages
   nixpkgs.config.allowUnfree = true;
-  xdg.enable = true;
-
-  home.stateVersion = "23.11";
-
   home.packages = with pkgs; [
-    keepassxc
-    neofetch
-    brightnessctl
-    pavucontrol
-    tor-browser
-    socat
-    plocate
-    protonvpn-gui
-    sbctl
-
-    # unfree
     obsidian
     spotify
     whatsapp-for-linux
     steam-run
-  ];
-  # systemd.user.mounts = {
-  #   home-richard-leannas = {
-  #     Unit = {
-  #       Description = "Leannas cifs share mounted at boot";
-  #     };
-  #     Mount = {
+  ]:
+
+
+  xdg.enable = true;
+
+# systemd.user.mounts = {
+#   home-richard-leannas = {
+#     Unit = {
+#       Description = "Leannas cifs share mounted at boot";
+#     };
+#     Mount = {
   #       What = "//10.1.0.11/Transfer";
   #       Where = "/home/richard/leannas";
   #       Options = [ "credentials=/home/richard/leannas.credentials,rw,users,uid=1000,gid=1000" ];
@@ -56,64 +70,6 @@ in
   #     };
   #   };
   # };
-
-  programs.btop = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-  programs.lazygit.enable = true;
-  programs.gpg = {
-    enable = true;
-  };
-  services.gpg-agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-qt;
-  };
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-    matchBlocks = {
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "${homeDirectory}/.ssh/id_ed25519_pri";
-      };
-      "github.com-work" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "${homeDirectory}/.ssh/id_ed25519_pro";
-      };
-    };
-  };
-  services.ssh-agent.enable = true;
-  services.clipman.enable = true;
-  programs.mpv = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-  programs.bat = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-  programs.lsd.enable = true;
-  programs.firefox.enable = true;
-  programs.git = {
-    enable = true;
-    extraConfig.commit.gpgsign = true;
-    aliases = {
-      a = "add -A";
-      c = "commit -m";
-      d = "diff";
-      l = "log";
-      p = "push";
-      r = "revert";
-      s = "status";
-      ac = "!git a && git c";
-    };
-  };
-  programs.wezterm = {
-    enable = true;
-  };
 
   catppuccin.flavour = "macchiato";
 
