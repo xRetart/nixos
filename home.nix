@@ -46,10 +46,10 @@ in
   #     };
   #     Mount = {
   #       What = "//10.1.0.11/Transfer";
-  #       Where = ${homeDirectory}/leannas;
-  #       Options = [ "credentials=/etc/nixos/leannas.credentials" "uid=1000" "gid=1000" "" ];
+  #       Where = "/home/richard/leannas";
+  #       Options = [ "credentials=/home/richard/leannas.credentials,rw,users,uid=1000,gid=1000" ];
   #       Type = "cifs";
-  #       TimeoutSec = 10;
+  #       # TimeoutSec = 10;
   #     };
   #     Install = {
   #       WantedBy = [ "multi-user.target" ];

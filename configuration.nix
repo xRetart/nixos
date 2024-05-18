@@ -111,12 +111,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable sound with pipewire.
@@ -128,19 +122,7 @@
   services.libinput.enable = true;
 
   # fingerprint
-  services.fprintd = {
-    enable = true;
-    # package = pkgs.fprintd.overrideAttrs {
-    #   mesonCheckFlags = [
-    #     "--no-suite"
-    #     "fprintd:TestPamFprintd"
-    #   ];
-    # };
-    # tod = {
-    #   enable = true;
-    #   driver = pkgs.libfprint-2-tod1-goodix;
-    # };
-  };
+  services.fprintd.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.richard = {
@@ -152,7 +134,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = (_: true);
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -160,6 +141,7 @@
     usbutils
     refind
     efibootmgr
+    cifs-utils
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
@@ -174,12 +156,19 @@
   #   in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
   # };
   boot.supportedFilesystems = [ "cifs" ];
+ #  security.wrappers."mount.cifs" = {
+ #    source = "${pkgs.cifs-utils}/bin/mount.cifs";
+    # owner = "root";
+    # group = "root";
+ #    setuid = true;
+ #  };
   systemd.mounts = [{
-    description = "Leannas cifs share mounted at boot";
+    description = "Leannas cifs share";
     what = "//10.1.0.11/Transfer";
     where = "/home/richard/leannas";
     type = "cifs";
     options = "credentials=/home/richard/nixos/leannas.credentials,rw,uid=1000,gid=1000";
+    wantedBy = [ "multi-user.target" ];
   }];
 
   # Some programs need SUID wrappers, can be configured further or are
