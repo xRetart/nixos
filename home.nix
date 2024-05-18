@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  homeDirectory = config.home.homeDirectory;
-in
 {
   imports = [
     ./programs/neovim/mod.nix
@@ -29,7 +26,7 @@ in
     homeDirectory = "/home/richard";
     stateVersion = "23.11";
 
-    home.packages = with pkgs; [
+    packages = with pkgs; [
       keepassxc
       neofetch
       brightnessctl
@@ -38,18 +35,16 @@ in
       socat
       plocate
       sbctl
+
+      # unfree packages
+      obsidian
+      spotify
+      whatsapp-for-linux
+      steam-run
     ];
   };
 
-  # unfree packages
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [
-    obsidian
-    spotify
-    whatsapp-for-linux
-    steam-run
-  ]:
-
 
   xdg.enable = true;
 

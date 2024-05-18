@@ -8,12 +8,12 @@
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "${homeDirectory}/.ssh/id_ed25519_pri";
+        identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519_pri";
       };
       "github.com-work" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "${homeDirectory}/.ssh/id_ed25519_pro";
+        identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519_pro";
       };
     };
   };
