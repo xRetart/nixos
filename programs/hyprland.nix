@@ -3,7 +3,6 @@
 {
   imports = [
     ./eww/mod.nix
-    ./swww/mod.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -12,7 +11,7 @@
       monitor = ",highres,auto,auto";
       "$mainMod" = "SUPER";
 
-      exec-once = "eww open bar & swww-daemon & firefox";
+      exec-once = "eww open bar & firefox";
 
       env = [
         "SWWW_TRANSITION_FPS,120"
@@ -35,8 +34,6 @@
         gaps_in = "5";
         gaps_out = "20";
         border_size = "2";
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
 
@@ -54,7 +51,6 @@
         drop_shadow = "yes";
         shadow_range = "4";
         shadow_render_power = "3";
-        "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {
