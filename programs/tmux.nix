@@ -8,6 +8,8 @@
     mouse = true;
     prefix = "C-Space";
     escapeTime = 0;
+    terminal = "screen-256color";
+	extraConfig = "set-option -sa terminal-features ',xterm-kitty:RGB'";
     catppuccin.enable = true;
   };
 }
