@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -8,7 +8,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       monitor = ",highres,auto,auto";
       "$mainMod" = "SUPER";

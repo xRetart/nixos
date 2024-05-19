@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.firefox.enable = true;

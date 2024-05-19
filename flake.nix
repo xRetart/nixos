@@ -11,10 +11,10 @@
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, lanzaboote, catppuccin, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, lanzaboote, stylix, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -45,12 +45,12 @@
           })
         ];
       };
-      homeConfigurations."richard" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.richard = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [
+          stylix.homeManagerModules.stylix
           ./home.nix
-          catppuccin.homeManagerModules.catppuccin
         ];
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;

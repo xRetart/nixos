@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.nushell = {
@@ -15,5 +15,4 @@
       s = "lsd -la";
     };
   };
-  programs.carapace.enable = true;
 }

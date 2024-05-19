@@ -19,6 +19,7 @@
     ./programs/mpv.nix
     ./programs/clipman.nix
     ./programs/lazygit.nix
+	./stylix.nix
   ];
 
   home = {
@@ -46,8 +47,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  xdg.enable = true;
-
 # systemd.user.mounts = {
 #   home-richard-leannas = {
 #     Unit = {
@@ -65,8 +64,6 @@
   #     };
   #   };
   # };
-
-  catppuccin.flavour = "macchiato";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

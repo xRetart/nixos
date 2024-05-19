@@ -1,8 +1,7 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.mpv = {
     enable = true;
-    catppuccin.enable = true;
   };
 }
