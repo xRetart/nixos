@@ -49,15 +49,12 @@
   };
   security.polkit.enable = true;
 
-  security.sudo.enable = false;
-  security.doas.enable = true;
+  security = {
+    sudo.enable = false;
+    doas.enable = true;
+  };
 
-  networking.hostName = "richard-laptop-nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "richard-laptop-nixos";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -108,8 +105,10 @@
 
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
   };
 
@@ -135,8 +134,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     usbutils
     refind
@@ -145,23 +142,7 @@
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
-  # fileSystems."/mnt/leannas" = {
-  #   device = "//10.1.0.11/Transfer";
-  #   fsType = "cifs";
-  #   options = let
-  #     prevent_hang_options = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
-  #     authenticate_option = "credentials=/etc/nixos/leannas.credentials";
-  #     permission_options = "uid=1000,gid=1000";
-  #
-  #   in ["${prevent_hang_options},${authenticate_option},${permission_options}"];
-  # };
   boot.supportedFilesystems = [ "cifs" ];
- #  security.wrappers."mount.cifs" = {
- #    source = "${pkgs.cifs-utils}/bin/mount.cifs";
-    # owner = "root";
-    # group = "root";
- #    setuid = true;
- #  };
   systemd.mounts = [{
     description = "Leannas cifs share";
     what = "//10.1.0.11/Transfer";
@@ -171,30 +152,5 @@
     wantedBy = [ "multi-user.target" ];
   }];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }
