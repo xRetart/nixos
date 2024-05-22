@@ -19,6 +19,7 @@
     ./programs/mpv.nix
     ./programs/clipman.nix
     ./programs/lazygit.nix
+    ./programs/direnv.nix
 	./stylix.nix
   ];
 
