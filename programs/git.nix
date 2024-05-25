@@ -3,7 +3,11 @@
 {
   programs.git = {
     enable = true;
-    extraConfig.commit.gpgsign = true;
+    extraConfig = {
+      commit.gpgsign = true;
+      safe.directory = "*";
+    };
+    delta.enable = true;
     aliases = {
       a = "add -A";
       c = "commit -m";
