@@ -23,4 +23,4 @@ def workspaces [] {
 }
 
 workspaces
-socat -u $'UNIX-CONNECT:/tmp/hypr/($env.HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock' - | each { workspaces }
+socat -u $'UNIX-CONNECT:/($env.XDG_RUNTIME_DIR)/hypr/($env.HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock' - | each { workspaces }
