@@ -26,6 +26,7 @@
     enable = true;
     powerOnBoot = true;
   };
+  hardware.cpu.amd.updateMicrocode = true;
   services.blueman.enable = true;
   services.locate = {
     enable = true;
