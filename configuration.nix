@@ -16,6 +16,10 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 3;
+		consoleMode = "max";
+		editor = false;
+		memtest86.enable = true;
+		timeout = 0;
       };
       efi.canTouchEfiVariables = true;
     };
