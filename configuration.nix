@@ -10,12 +10,15 @@
 
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 3;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 3;
+      };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
   };
 
   # powers up the default Bluetooth controller on boot
@@ -100,6 +103,14 @@
 
   programs.hyprland.enable = true;
   programs.git.enable = true;
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 4d --keep 3";
+    };
+    flake = "/home/richard/nixos";
+  };
 
   services.printing.enable = true;
 
@@ -139,6 +150,7 @@
     refind
     efibootmgr
     cifs-utils
+    (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
