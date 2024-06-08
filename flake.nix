@@ -7,14 +7,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, lanzaboote, stylix, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, lanzaboote } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -49,8 +49,8 @@
         inherit pkgs;
 
         modules = [
-          stylix.homeManagerModules.stylix
           ./home.nix
+          catppuccin.homeManagerModules.catppuccin
         ];
       };
       formatter.${system} = pkgs.nixpkgs-fmt;

@@ -20,7 +20,6 @@
     ./programs/clipman.nix
     ./programs/lazygit.nix
     ./programs/direnv.nix
-	./stylix.nix
   ];
 
   home = {
@@ -47,6 +46,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  catppuccin = {
+    enable = true;
+    flavor = "macchiato";
+  };
 
 # systemd.user.mounts = {
 #   home-richard-leannas = {
