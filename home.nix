@@ -50,6 +50,14 @@
     enable = true;
     flavor = "macchiato";
   };
+  gtk = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "macchiato";
+    };
+  };
+
 
 # systemd.user.mounts = {
 #   home-richard-leannas = {

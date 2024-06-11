@@ -25,7 +25,7 @@ def fraction [] {
 let status = open $'/sys/class/power_supply/($battery)/status'
 
 match $status {
-	"Not charging" | "Full\n" => ' ',
+	"Not charging" | "Full" => ' ',
 	"Charging" => ' ',
 	"Discharging" => fraction,
 	_ => 'ERROR: Power status is not recognized.',
