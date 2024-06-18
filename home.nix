@@ -38,7 +38,6 @@
       sbctl
 
       # unfree packages
-      obsidian
       spotify
       whatsapp-for-linux
       steam-run
@@ -49,12 +48,12 @@
   catppuccin = {
     enable = true;
     flavor = "macchiato";
+	accent = "teal";
   };
   gtk = {
     enable = true;
     catppuccin = {
       enable = true;
-      flavor = "macchiato";
     };
   };
 
