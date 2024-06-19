@@ -23,8 +23,10 @@ return {
 			vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename)
 			vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 			vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover)
-			vim.keymap.set('n', '<leader>lc', vim.lsp.buf.references)
-			vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation)
+			vim.keymap.set('n', '<leader>lc', require('telescope.builtin').lsp_references)
+			vim.keymap.set('n', '<leader>li', require('telescope.builtin').lsp_implementations)
+			vim.keymap.set('n', '<leader>ld', require('telescope.builtin').lsp_definitions)
+			vim.keymap.set('n', '<leader>ly', require('telescope.builtin').lsp_workspace_symbols)
 		end)
 
 
