@@ -20,7 +20,7 @@
     ./programs/clipman.nix
     ./programs/lazygit.nix
     ./programs/direnv.nix
-    ./programs/ags/mod.nix
+    # ./programs/ags/mod.nix
   ];
 
   home = {

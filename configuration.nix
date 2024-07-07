@@ -8,7 +8,6 @@
   imports = [ ./hardware-configuration.nix ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
   # Bootloader.
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -45,16 +44,16 @@
       users = [ "1000" ];
     };
   };
-  services.kmscon = {
-    enable = true;
-    hwRender = true;
-    fonts = [{ name = "MesloLGS NF Regular"; package = pkgs.meslo-lgs-nf; }];
-    extraConfig = ''
-      font-size=19
-      xkb-layout=us
-      xkb-variant=colemak
-    '';
-  };
+  # services.kmscon = {
+  #   enable = true;
+    # hwRender = true;
+    # fonts = [{ name = "MesloLGS NF Regular"; package = pkgs.meslo-lgs-nf; }];
+    # extraConfig = ''
+    #   font-size=19
+    #   xkb-layout=us
+    #   xkb-variant=colemak
+    # '';
+  # };
   security.polkit.enable = true;
 
   security = {
