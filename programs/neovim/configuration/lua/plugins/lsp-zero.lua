@@ -14,6 +14,7 @@ return {
 		'L3MON4D3/LuaSnip',
 	},
 	config = function()
+		vim.lsp.inlay_hint.enable(true)
 		local lsp = require('lsp-zero').preset {}
 
 		lsp.on_attach(function(client, buffer_number)
