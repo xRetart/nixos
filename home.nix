@@ -37,6 +37,7 @@
       socat
       plocate
       sbctl
+	  chromium
 
       # unfree packages
       spotify
