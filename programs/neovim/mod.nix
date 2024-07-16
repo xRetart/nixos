@@ -11,6 +11,7 @@
       lua-language-server
       ripgrep
       fd
+	  fzf
     ];
   };
 
