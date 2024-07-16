@@ -6,4 +6,7 @@ return {
 		{ '<leader>ph', function() require('fzf-lua').files({ cwd = vim.fn.expand('%:p:h') }) end, desc = 'Find files' },
 		{ '<leader>ps', function() require('fzf-lua').live_grep() end,                             desc = 'Live grep' },
 	},
+	config = function()
+		require('fzf-lua').register_ui_select()
+	end
 }

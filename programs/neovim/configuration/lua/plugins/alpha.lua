@@ -1,7 +1,6 @@
 return {
 	'goolord/alpha-nvim',
 	dependencies = { { 'nvim-tree/nvim-web-devicons' } },
-	keys = { { '<leader>m', '<cmd>Alpha<cr>', desc = 'Open Alpha menu' } },
 	config = function()
 		require 'alpha'.setup(require('alpha.themes.dashboard').config)
 		local dashboard = require('alpha.themes.dashboard')
@@ -23,8 +22,8 @@ return {
 			dashboard.button('o', '  Manage Files', function() require('oil').open() end),
 			dashboard.button('n', '  New file', '<cmd>ene <bar> startinsert <cr>'),
 			dashboard.button('t', '  Find Text', function() require('fzf-lua').live_grep() end),
-			dashboard.button('c', '  Configuration', '<cmd>e $MYVIMRC <bar> cd %:p:h<cr>'),
 			dashboard.button('q', '󰗼  Quit Neovim', '<cmd>qa<cr>'),
 		}
+		vim.keymap.set('n', '<leader>m', '<cmd>Alpha<cr>', { silent = true })
 	end
 }
