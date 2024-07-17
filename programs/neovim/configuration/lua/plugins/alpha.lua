@@ -18,7 +18,8 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button('f', '󰈞  Files',
-				function() require('fzf-lua').files({ path_shorten = true, cmd = 'fd --type f' }) end),
+				function() require('fzf-lua').files({ cmd = 'fd --type f' }) end),
+			dashboard.button('a', '󰈞  Files', function() require('fzf-lua').files() end),
 			dashboard.button('r', '  Recent Files', function() require('fzf-lua').oldfiles() end),
 			dashboard.button('o', '  Manage Files', function() require('oil').open() end),
 			dashboard.button('n', '  New file', '<cmd>ene <bar> startinsert <cr>'),
