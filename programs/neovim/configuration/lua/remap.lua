@@ -56,3 +56,5 @@ vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>', { silent = true })
 vim.keymap.set('n', '<leader>fx', '<cmd>x<cr>', { silent = true })
 vim.keymap.set('n', '<leader>fz', '<cmd>xa<cr>', { silent = true })
 vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>', { silent = true })
+
+vim.keymap.set('n', '<leader>gv', '<cmd>vsplit<cr>gd', { silent = true })
