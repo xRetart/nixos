@@ -79,7 +79,10 @@
         workspace_swipe_invert = "false";
       };
 
-      windowrulev2 = "suppressevent maximize, class:.*";
+	  windowrulev2 = [
+		  "suppressevent maximize, class:.*"
+		  "workspace 9, class:org.keepassxc.KeePassXC"
+	  ];
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
