@@ -113,7 +113,7 @@
       enable = true;
       extraArgs = "--keep-since 4d --keep 3";
     };
-    flake = "/home/richard/nixos";
+    flake = "${config.users.users.richard.home}/nixos";
   };
 
   services.printing.enable = true;
