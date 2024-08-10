@@ -153,7 +153,7 @@
     refind
     efibootmgr
     cifs-utils
-    (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
+	doas-sudo-shim
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
