@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+
+nh os switch --update
+nh home switch
