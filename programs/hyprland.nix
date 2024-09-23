@@ -15,7 +15,7 @@
 
       env = [
         "SWWW_TRANSITION_FPS,120"
-        "GDK_DPI_SCALE,0.5"
+        # "GDK_DPI_SCALE,0.5"
         "XCURSOR_SIZE,64"
         "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
