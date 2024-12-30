@@ -133,6 +133,7 @@
     };
     flake = "${config.users.users.richard.home}/nixos";
   };
+  programs.steam.enable = true;
 
   services.printing.enable = true;
 
@@ -173,6 +174,9 @@
     cifs-utils
 	doas-sudo-shim
 	protonvpn-gui
+	llvmPackages_latest.lldb
+	llvmPackages_latest.clang
+	valgrind
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 

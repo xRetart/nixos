@@ -39,6 +39,11 @@
       plocate
       sbctl
 	  chromium
+	  clang-tools
+	  gparted
+	  unzip
+	  cacert
+	  mars-mips
 
       # unfree packages
       spotify
@@ -52,12 +57,6 @@
     enable = true;
     flavor = "macchiato";
 	accent = "teal";
-  };
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-    };
   };
 
 

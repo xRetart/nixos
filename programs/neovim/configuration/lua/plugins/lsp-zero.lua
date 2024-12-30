@@ -39,6 +39,7 @@ return {
 		config.ruff_lsp.setup {}
 		config.glslls.setup {}
 		config.nushell.setup {}
+		config.clangd.setup {}
 
 		lsp.setup()
 	end
