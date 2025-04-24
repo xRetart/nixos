@@ -43,7 +43,7 @@
 	  gparted
 	  unzip
 	  cacert
-	  mars-mips
+	  jetbrains.idea-community-bin
 
       # unfree packages
       spotify

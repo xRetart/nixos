@@ -37,7 +37,6 @@
               chainloader /EFI/Microsoft/Boot/bootmgfw.efi
           }
         '';
-        version = 2;
       };
     };
   };
@@ -172,7 +171,6 @@
     efibootmgr
     cifs-utils
 	doas-sudo-shim
-	protonvpn-gui
 	llvmPackages_latest.lldb
 	llvmPackages_latest.clang
 	valgrind

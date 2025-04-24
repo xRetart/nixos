@@ -50,7 +50,7 @@
 
         modules = [
           ./home.nix
-          catppuccin.homeManagerModules.catppuccin
+          catppuccin.homeModules.catppuccin
         ];
       };
       formatter.${system} = pkgs.nixpkgs-fmt;
