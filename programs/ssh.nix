@@ -21,7 +21,7 @@
           identityFile = publicIdentity;
         };
         "git.tu-berlin.de" = {
-          hostname = "git.tu-berlin.com";
+          hostname = "git.tu-berlin.de";
           user = "git";
           identityFile = publicIdentity;
         };

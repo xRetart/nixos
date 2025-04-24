@@ -52,7 +52,6 @@
   services.locate = {
     enable = true;
     package = pkgs.plocate;
-    localuser = null;
   };
   services.geoclue2 = {
     enable = true;
