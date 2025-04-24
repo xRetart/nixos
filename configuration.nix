@@ -109,15 +109,15 @@
   };
   services.xserver = {
     enable = true;
-    desktopManager.plasma5 = {
-      enable = true;
-      useQtScaling = true;
-    };
 
     xkb = {
       layout = "us";
       variant = "colemak";
     };
+  };
+  services.displayManager = {
+    sddm.enable = true;
+    plasma6.enable = true;
   };
 
 
@@ -170,10 +170,10 @@
     refind
     efibootmgr
     cifs-utils
-	doas-sudo-shim
-	llvmPackages_latest.lldb
-	llvmPackages_latest.clang
-	valgrind
+    doas-sudo-shim
+    llvmPackages_latest.lldb
+    llvmPackages_latest.clang
+    valgrind
   ];
   fonts.packages = with pkgs; [ meslo-lgs-nf ];
 
