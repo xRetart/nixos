@@ -16,7 +16,7 @@
       p = "push";
       r = "revert";
       s = "status";
-      ac = "!git a -A && git c";
+      ac = "!git add -A && git commit -m";
     };
   };
 }
