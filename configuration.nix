@@ -115,10 +115,7 @@
       variant = "colemak";
     };
   };
-  services.displayManager = {
-    sddm.enable = true;
-    plasma6.enable = true;
-  };
+  services.desktopManager.plasma6.enable = true;
 
 
   programs.hyprland.enable = true;
@@ -145,7 +142,7 @@
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
