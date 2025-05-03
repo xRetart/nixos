@@ -36,7 +36,7 @@ return {
 		config.lua_ls.setup(lsp.nvim_lua_ls())
 		config.bashls.setup {}
 		config.pyright.setup {}
-		config.ruff_lsp.setup {}
+		config.ruff.setup {}
 		config.glslls.setup {}
 		config.nushell.setup {}
 		config.clangd.setup {}

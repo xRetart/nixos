@@ -74,7 +74,14 @@
 
   security = {
     sudo.enable = false;
-    doas.enable = true;
+    doas = {
+      enable = true;
+      extraRules = [{
+        users = [ "richard" ];
+        keepEnv = true;
+        persist = true;  
+      }];
+    };
   };
 
   networking.hostName = "richard-laptop-nixos";
