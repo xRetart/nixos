@@ -7,14 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v0.3.0";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin } @ inputs:
+  outputs = { self, nixpkgs, home-manager } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -50,7 +49,6 @@
 
         modules = [
           ./home.nix
-          catppuccin.homeModules.catppuccin
         ];
       };
       formatter.${system} = pkgs.nixpkgs-fmt;
