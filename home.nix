@@ -52,6 +52,15 @@
     ];
   };
 
+  fonts = {
+    fontconfig.enable = true; # enables font config support
+
+    # This ensures fonts are properly configured for your user
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
 # systemd.user.mounts = {
